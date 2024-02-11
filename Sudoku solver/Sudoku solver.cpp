@@ -180,7 +180,7 @@ int main()
     {
         for (int j = 0; j < 9; j++)
         {
-			butt_massive[i][j].setCoord(i, j);
+			butt_massive[j][i].setCoord(i, j);
             butt_massive[i][j].setPos(i * 100 + 100, j * 100 + 200);
         }
             
@@ -225,7 +225,7 @@ int main()
             
             
 			/*butt_test.mousePresBut(win, event, c, grid);*/
-			std::cout << c << std::endl;
+			
         }
         win.clear();
         button1.printButton(win);
