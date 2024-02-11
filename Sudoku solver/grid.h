@@ -1,3 +1,5 @@
+#ifndef SRC_GRID_H_
+#define SRC_GRID_H_
 
 #include <array>
 #include <fstream>
@@ -221,3 +223,4 @@ std::ostream& operator<< (std::ostream& out, Grid grid) {
 
 }  
 
+#endif

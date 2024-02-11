@@ -1,4 +1,5 @@
-
+#ifndef SRC_SUDOKU_SOLVER_H_
+#define SRC_SUDOKU_SOLVER_H_
 #include<utility>
 
 #include"grid.h"
@@ -45,4 +46,4 @@ void solve(Grid *grid) {
 
 }  // namespace sudoku
 
-
+#endif 

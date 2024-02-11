@@ -128,7 +128,7 @@ public:
 	}
 	void printButton(RenderWindow& win) const {
 		win.draw(butt);
-		win.draw(txt);
+		win.draw(txt);	
 	}
 	void mousePresBut(RenderWindow& win, Event& event, int container, sudoku::Grid& grid) {
 		if (event.type == Event::MouseButtonPressed) {

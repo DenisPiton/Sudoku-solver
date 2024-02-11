@@ -103,17 +103,17 @@ public:
 
     }
 };
-void event_cheker(Inter_grid& butt, sf::Event& event, sudoku::Grid& grid, int cont, RenderWindow& win) {
-   // for (int i = 0; i<9;i++)
-   // {
-   //     for (int j = 0; j < 9; j++)
-   //     {
-			//butt[i][j].mousePresBut(win, event, cont, grid);
-   //     }
-   //     /*butt[i].mousePresBut(win, event, cont, grid);*/
-   //     
-   // }
-    for (int i = 0; i < 9; i++)
+void event_cheker(std::vector<std::vector<Input_Button>>& butt, sf::Event& event, sudoku::Grid& grid, int cont, RenderWindow& win) {
+    for (int i = 0; i<9;i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+			butt[i][j].mousePresBut(win, event, cont, grid);
+        }
+        /*butt[i].mousePresBut(win, event, cont, grid);*/
+        
+    }
+    /*for (int i = 0; i < 9; i++)
     {
         butt[1][i].mousePresBut(win, event, cont, grid);
 		butt[2][i].mousePresBut(win, event, cont, grid);
@@ -124,7 +124,7 @@ void event_cheker(Inter_grid& butt, sf::Event& event, sudoku::Grid& grid, int co
         butt[7][i].mousePresBut(win, event, cont, grid);
         butt[8][i].mousePresBut(win, event, cont, grid);
         butt[0][i].mousePresBut(win, event, cont, grid);
-    }
+    }*/
     
     
 }
@@ -175,16 +175,16 @@ int main()
     /*Input_Button butt_test(100, 200, 50, 50, sf::Color::White, "");
     butt_test.setCoord(0, 0);*/
 
-    /*std::vector<std::vector<Input_Button>> butt_massive(9, std::vector<Input_Button>(9));
+    std::vector<std::vector<Input_Button>> butt_massive(9, std::vector<Input_Button>(9));
     for (int i = 0; i < 9; i++)
     {
         for (int j = 0; j < 9; j++)
         {
 			butt_massive[i][j].setCoord(i, j);
-            butt_massive[i][j].setPos(i * 100 + 100, j * 100 + 100);
+            butt_massive[i][j].setPos(i * 100 + 100, j * 100 + 200);
         }
             
-    }*/
+    }
 
 
 	/*std::vector<Input_Button> butt_massive(9);
@@ -204,27 +204,23 @@ int main()
         while (win.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)win.close();
-            if (event.type == Event::MouseButtonPressed)
+            
+            button1.mousePresBut(win, event, c);
+            button2.mousePresBut(win, event, c);
+            button3.mousePresBut(win, event, c);
+            button4.mousePresBut(win, event, c);
+            button5.mousePresBut(win, event, c);
+            button6.mousePresBut(win, event, c);
+            button7.mousePresBut(win, event, c);
+            button8.mousePresBut(win, event, c);
+            button9.mousePresBut(win, event, c);
+            for (int i = 0; i < 9; i++)
             {
-                button1.mousePresBut(win, event, c);
-                button2.mousePresBut(win, event, c);
-                button3.mousePresBut(win, event, c);
-                button4.mousePresBut(win, event, c);
-                button5.mousePresBut(win, event, c);
-                button6.mousePresBut(win, event, c);
-                button7.mousePresBut(win, event, c);
-                button8.mousePresBut(win, event, c);
-                button9.mousePresBut(win, event, c);
-                /*butt_massive[0].mousePresBut(win, event, c,grid);
-                butt_massive[1].mousePresBut(win, event, c, grid);
-                butt_massive[2].mousePresBut(win, event, c, grid);
-                butt_massive[3].mousePresBut(win, event, c, grid);
-                butt_massive[4].mousePresBut(win, event, c, grid);
-                butt_massive[5].mousePresBut(win, event, c, grid);
-                butt_massive[6].mousePresBut(win, event, c, grid);
-                butt_massive[7].mousePresBut(win, event, c, grid);
-                butt_massive[8].mousePresBut(win, event, c, grid);*/
-                event_cheker(intergrid, event, grid, c, win);
+                for (int j = 0; j < 9; j++)
+                {
+                    butt_massive[i][j].mousePresBut(win, event, c, grid);
+                }
+
             }
             
             
@@ -241,7 +237,7 @@ int main()
         button7.printButton(win);
         button8.printButton(win);
         button9.printButton(win);
-		intergrid.print(win);
+		/*intergrid.print(win);*/
         /*for (int i = 0; i < 9; i++)
         {
 			butt_massive[i].printButton(win);
@@ -253,6 +249,14 @@ int main()
                 j.printButton(win);
             }
         }*/
+		
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+				butt_massive[i][j].printButton(win);
+            }
+        }
 
 		win.display();
 
