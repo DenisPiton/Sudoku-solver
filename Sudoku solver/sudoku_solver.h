@@ -28,8 +28,8 @@ bool _solve(
         bool next_cell_is_solved = _solve(grid, next_coord);
         if (next_cell_is_solved) return true;
 
-        /* If this value didn't work, we need to clear the grid of all the
-         * values that have been filled as a result of this. */
+        
+
         grid->clear_values_starting_from_coord(cell_coord);
     }
 
@@ -40,10 +40,10 @@ bool _solve(
 }
 
 void solve(Grid *grid) {
-    /* Actual function that is used by the user. */
     _solve(grid);
 }
 
-}  // namespace sudoku
+}  
+
 
 #endif 
