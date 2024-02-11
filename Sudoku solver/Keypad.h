@@ -3,6 +3,8 @@
 #include "sfml/Graphics.hpp"
 #include "coord.h"
 #include "grid.h" 
+#include "sudoku_solver.h"
+#include "sudoku_validator.h"
 using namespace sf;
 class Button {
 	Font font;
@@ -75,7 +77,7 @@ public:
 	}
 };
 
-class Input_Button {
+class Input_Button : public Button {
 	Font font;
 	
 	
@@ -126,10 +128,11 @@ public:
 		txt.setString(text);
 		value = valuse;
 	}
-	void printButton(RenderWindow& win) const {
+	void printButton(RenderWindow& win) {
 		win.draw(butt);
-		win.draw(txt);	
+		win.draw(txt);
 	}
+	
 	void mousePresBut(RenderWindow& win, Event& event, int container, sudoku::Grid& grid) {
 		if (event.type == Event::MouseButtonPressed) {
 			if (event.key.code == Mouse::Left) {
@@ -160,3 +163,49 @@ public:
 };
 
 
+class Solve_Button {
+public:
+	RectangleShape butt;
+	Text txt;
+	Font font;
+	Color color1;
+	Solve_Button() {
+		butt.setSize(Vector2f(100, 50));
+		butt.setPosition(1000, 1100);
+		txt.setString("Solve");
+		txt.setPosition(1000, 1100);
+		color1 = Color::Green;
+		butt.setFillColor(color1);
+		txt.setFillColor(Color::White);
+		txt.setCharacterSize(20);
+		font.loadFromFile("Font.otf");
+		txt.setFont(font);
+	}
+	void print(RenderWindow& win) {
+		win.draw(butt);
+		win.draw(txt);
+	}
+	void mousePresBut(RenderWindow& win, Event& event, sudoku::Grid grid) {
+		if (event.type == Event::MouseButtonPressed) {
+			if (event.key.code == Mouse::Left) {
+				if (butt.getGlobalBounds().contains(Mouse::getPosition(win).x, Mouse::getPosition(win).y))
+				{
+					sudoku::solve(&grid);
+					std::cout << "Solution is valid? --> ";
+					std::cout << sudoku::is_valid_solution(grid) << std::endl;
+					std::cout << grid << std::endl;
+				}
+
+			}
+		}
+		else {
+			if (butt.getGlobalBounds().contains(Mouse::getPosition(win).x, Mouse::getPosition(win).y))
+			{
+				butt.setFillColor(Color::Cyan);
+			}
+			else {
+				butt.setFillColor(color1);
+			}
+		}
+	}
+};

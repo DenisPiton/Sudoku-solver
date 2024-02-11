@@ -196,9 +196,12 @@ int main()
 
 	Inter_grid intergrid;
 
-    sf::RenderWindow win(sf::VideoMode(1100, 1100), "Calc");
+    sf::RenderWindow win(sf::VideoMode(1100, 1200), "Calc");
     sf::Event event;
     win.setFramerateLimit(120);
+
+	Solve_Button solve_button;
+
     while (win.isOpen())
     {
         while (win.pollEvent(event))
@@ -222,6 +225,7 @@ int main()
                 }
 
             }
+			solve_button.mousePresBut(win, event, grid);
             
             
 			/*butt_test.mousePresBut(win, event, c, grid);*/
@@ -237,6 +241,7 @@ int main()
         button7.printButton(win);
         button8.printButton(win);
         button9.printButton(win);
+		solve_button.print(win);
 		/*intergrid.print(win);*/
         /*for (int i = 0; i < 9; i++)
         {
