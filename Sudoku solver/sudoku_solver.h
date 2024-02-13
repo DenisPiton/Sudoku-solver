@@ -1,5 +1,4 @@
-#ifndef SRC_SUDOKU_SOLVER_H_
-#define SRC_SUDOKU_SOLVER_H_
+#pragma once
 #include<utility>
 
 #include"grid.h"
@@ -46,4 +45,4 @@ void solve(Grid *grid) {
 }  
 
 
-#endif 
+

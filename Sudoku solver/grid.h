@@ -1,6 +1,4 @@
-#ifndef SRC_GRID_H_
-#define SRC_GRID_H_
-
+#pragma once
 #include <array>
 #include <fstream>
 #include <iostream>
@@ -222,5 +220,3 @@ std::ostream& operator<< (std::ostream& out, Grid grid) {
 }
 
 }  
-
-#endif

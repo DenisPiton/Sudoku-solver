@@ -1,5 +1,4 @@
-#ifndef SRC_SUDOKU_VALIDATOR_H_
-#define SRC_SUDOKU_VALIDATOR_H_
+#pragma once
 
 #include<utility>
 
@@ -26,4 +25,3 @@ bool is_valid_solution(
 
 }  // namespace sudoku
 
-#endif 

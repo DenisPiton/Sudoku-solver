@@ -194,7 +194,7 @@ int main()
         butt_massive[i].setPos(i * 100 + 100, 200);
     }*/
 
-	Inter_grid intergrid;
+	
 
     sf::RenderWindow win(sf::VideoMode(1100, 1200), "Calc");
     sf::Event event;

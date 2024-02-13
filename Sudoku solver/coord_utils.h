@@ -1,7 +1,4 @@
-
-#ifndef SRC_COORD_UTILS_H_
-#define SRC_COORD_UTILS_H_
-
+#pragma once
 
 #include<random>
 
@@ -26,4 +23,4 @@ Coord get_next_cell_coord(Coord coord) {
 
 }  // namespace sudoku
 
-#endif
+
